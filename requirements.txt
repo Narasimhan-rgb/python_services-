@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+polars
+numpy
+scipy
+qiskit
+pydantic
+python-multipart
+fastexcel
