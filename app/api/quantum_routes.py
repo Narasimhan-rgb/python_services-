@@ -9,7 +9,8 @@ from app.models.quantum_qasm_response import QuantumQasmResponse
 from app.services.quantum_amplitude_simulator import QuantumAmplitudeSimulator
 from app.services.quantum_interference_simulator import QuantumInterferenceSimulator
 from app.services.openqasm_generator import OpenQasmGenerator
-
+from app.models.qiskit_circuit_response import QiskitCircuitResponse
+from app.services.qiskit_research_service import QiskitResearchService
 
 router = APIRouter(
     prefix="/quantum",
@@ -21,6 +22,7 @@ amplitude_simulator = QuantumAmplitudeSimulator()
 interference_simulator = QuantumInterferenceSimulator()
 
 openqasm_generator = OpenQasmGenerator()
+qiskit_research_service = QiskitResearchService()
 
 
 @router.post(
@@ -107,3 +109,29 @@ def generate_qasm(
             status_code=400,
             detail=str(e)
         )
+@router.post(
+    "/qiskit-circuit",
+    response_model=QiskitCircuitResponse
+)
+def generate_qiskit_circuit(
+        request: QuantumQasmRequest
+):
+
+    try:
+
+        result = qiskit_research_service.generate_qiskit_circuit(
+            file_path=request.filePath,
+            selected_column=request.selectedColumn,
+            sample_size=request.sampleSize,
+            candidate_count=request.candidateCount,
+            learning_rate=request.learningRate
+        )
+
+        return result
+
+    except Exception as e:
+
+        raise HTTPException(
+            status_code=400,
+            detail=str(e)
+        )   
