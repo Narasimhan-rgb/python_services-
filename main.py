@@ -5,7 +5,11 @@ from app.api.health_routes import router as health_router
 from app.api.profiling_routes import router as profiling_router
 from app.api.detection_routes import router as detection_router
 from app.api.quantum_routes import router as quantum_router
+from app.api.auth_routes import router as auth_router
+from app.db import Base, engine
+from app.models.user import User # Import to register the model
 
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="AAQ Python Profiling Service",
@@ -39,6 +43,10 @@ app.include_router(
 
 app.include_router(
     quantum_router
+)
+
+app.include_router(
+    auth_router
 )
 
 

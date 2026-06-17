@@ -7,3 +7,6 @@ qiskit
 pydantic
 python-multipart
 fastexcel
+bcrypt
+python-jose
+sqlalchemy
