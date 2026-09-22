@@ -1,3 +1,5 @@
+> **Historical planning/status notes:** claims below are not a verified inventory of this checkout. Use README.md and REPOSITORY_STATUS.md for the current source-backed scope. The planned 13,500 measured rows are not supplied here.
+
 # AAQ Python Service Progress
 
 _Last updated: 2026-08-16_

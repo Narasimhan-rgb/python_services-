@@ -58,3 +58,5 @@ def root():
         "message": "Python service is running",
         "docs": "/docs"
     }
+from app.api.paper_routes import router as paper_router
+app.include_router(paper_router)
