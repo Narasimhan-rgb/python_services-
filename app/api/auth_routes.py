@@ -10,7 +10,9 @@ from pydantic import BaseModel
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
-SECRET_KEY = "your-secret-key-for-aaq-super-secure"
+import os
+import secrets
+SECRET_KEY = os.environ.get("AAQ_JWT_SECRET") or secrets.token_urlsafe(48)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7 # 7 days
 

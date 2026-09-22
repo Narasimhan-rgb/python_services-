@@ -16,3 +16,8 @@ generated/
 *.xlsx
 *.csv
 *.parquet
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite*
