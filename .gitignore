@@ -1,18 +1,40 @@
-venv/
+# Virtual environments
 .venv/
+venv/
 
+# Python caches / tooling
 __pycache__/
 **/__pycache__/
 *.pyc
 *.pyo
 *.pyd
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
 
+# Secrets / local config
 .env
+.env.*
+!.env.example
+*.local
 
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local datasets and generated research output
 data/
 reports/
 generated/
 *.xlsx
 *.csv
 *.parquet
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
